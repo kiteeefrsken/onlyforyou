@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>only4uh..</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    text-align:center;
+    padding:20px;
+}
+
+#box{
+    width:100%;
+    max-width:700px;
+}
+
+#text{
+    font-size:32px;
+    line-height:1.5;
+}
+
+button{
+    padding:10px 20px;
+    margin:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+input{
+    padding:10px;
+    font-size:16px;
+    width:250px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div id="box">
+
+<div id="text">
+Did you come from Kite's YouTube link?
+</div>
+
+<div id="buttons">
+<button onclick="startAnswer('yes')">Yes</button>
+<button onclick="startAnswer('no')">No</button>
+</div>
+
+</div>
+
+<script>
+
+function startAnswer(answer){
+
+    if(answer==="no"){
+        document.getElementById("text").innerHTML="Access denied.";
+        document.getElementById("buttons").innerHTML="";
+        return;
+    }
+
+    document.getElementById("text").innerHTML=
+    "Enter Kite's real name.<br><small>Only someone who knows him can continue.</small>";
+
+    document.getElementById("buttons").innerHTML=`
+        <input id="nameInput" placeholder="Enter here">
+        <br><br>
+        <button onclick="checkName()">Submit</button>
+    `;
+}
+
+function checkName(){
+
+    let name=document.getElementById("nameInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if(name!=="swopnil"){
+        document.getElementById("text").innerHTML="Access denied.";
+        document.getElementById("buttons").innerHTML="";
+        return;
+    }
